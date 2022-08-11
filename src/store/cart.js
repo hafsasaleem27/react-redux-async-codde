@@ -19,7 +19,6 @@ const cartSlice = createSlice({
       state.isOpen = !state.isOpen;
     },
     addItem(state, action) { // action.payload
-      console.log('action: ', action)
       const index = state.items.findIndex(item => item.id === action.payload.id);
       if (index !== -1) {
         state.items[index].quantity++;
