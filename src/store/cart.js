@@ -9,7 +9,6 @@ const cartSlice = createSlice({
   initialState: initialCartState,
   reducers: {
     toggle(state) {
-      console.log('here')
       state.isOpen = !state.isOpen;
     },
   },
