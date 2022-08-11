@@ -18,6 +18,29 @@ const Cart = (props) => {
     dispatch(cartActions.addItem({ id }));
   };
 
+  const removeFromCartHandler = (id) => {
+    dispatch(cartActions.removeItem({ id }));
+  };
+
+  const displayCart = () => {
+    if (cartItems.length > 0) {
+      return (
+        <ul>
+          {cartItems.map((item) => (
+            <CartItem
+              item={item}
+              onAddToCart={addToCartHandler.bind(this, item.id)}
+              onRemoveFromCart={removeFromCartHandler.bind(this, item.id)}
+            />
+          ))}
+          <button onClick={toggleCartHandler}>Close Cart</button>
+        </ul>
+      );
+    } else {
+      return <p>Your cart is empty!</p>
+    }
+  };
+
   const Backdrop = (props) => (
     <div className={classes.backdrop} onClick={toggleCartHandler}></div>
   );
@@ -25,16 +48,9 @@ const Cart = (props) => {
   const ModalBody = () => (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
-      <ul>
-        {cartItems.map((item) => (
-          <CartItem item={item} onAddToCart={addToCartHandler.bind(this, item.id)} />
-        ))}
-        <button onClick={toggleCartHandler}>Close Cart</button>
-      </ul>
+      {displayCart()}
     </Card>
   );
-
-  
 
   return (
     <React.Fragment>

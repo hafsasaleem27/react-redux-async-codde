@@ -29,7 +29,17 @@ const cartSlice = createSlice({
           ...action.payload,
         })
       }
+    },
+    removeItem(state, action) {
       
+      const index = state.items.findIndex(item => item.id === action.payload.id);
+      if (state.items[index].quantity > 1) {
+        console.log('here');
+        state.items[index].quantity--;
+      } else {
+        state.items = state.items.filter(item => item.index === index && item.quantity === 1);
+      }
+      console.log('state.items: ', state.items)
     },
   },
 });
