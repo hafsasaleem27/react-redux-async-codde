@@ -1,5 +1,4 @@
 import CartButton from "../Cart/CartButton";
-import Cart from "../Cart/Cart";
 import classes from "./MainHeader.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart";
