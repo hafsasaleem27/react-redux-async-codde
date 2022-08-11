@@ -23,10 +23,12 @@ const Cart = (props) => {
   };
 
   const displayCart = () => {
-    if (cartItems.length > 0) {
+    const items = cartItems.filter(item => item.quantity > 0);
+
+    if (items.length > 0) {
       return (
         <ul>
-          {cartItems.map((item) => (
+          {items.map((item) => (
             <CartItem
               item={item}
               onAddToCart={addToCartHandler.bind(this, item.id)}
