@@ -10,10 +10,19 @@ function App() {
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
-    fetch("https://react-http-fe5e1-default-rtdb.firebaseio.com/cart.json", {
-      method: "PUT",
-      body: JSON.stringify(cart),
-    });
+    const sendCartData = async () => {
+      const response = await fetch(
+        "https://react-http-fe5e1-default-rtdb.firebaseio.com/cart.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(cart),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+      
+    };
   }, [cart]);
 
   return (
