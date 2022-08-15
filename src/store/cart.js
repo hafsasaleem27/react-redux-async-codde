@@ -9,7 +9,7 @@ const initialCartState = {
     price: 6,
     total: 18
   }],
-  totalAmount: 0,
+  totalAmount: 18,
 };
 
 const cartSlice = createSlice({
