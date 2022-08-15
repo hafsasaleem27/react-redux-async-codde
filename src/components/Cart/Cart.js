@@ -4,6 +4,7 @@ import CartItem from "./CartItem";
 import ReactDOM from "react-dom";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui";
 import { cartActions } from "../../store/cart";
 
 const Cart = (props) => {
@@ -11,7 +12,7 @@ const Cart = (props) => {
   const cartItems = useSelector((state) => state.cart.items);
 
   const toggleCartHandler = () => {
-    dispatch(cartActions.toggle());
+    dispatch(uiActions.toggle());
   };
 
   const addToCartHandler = (id) => {

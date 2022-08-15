@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialCartState = {
-  isOpen: false,
+  // isOpen: false,
   items: [{
     id: Math.random().toString(),
     title: "Test Item",
@@ -16,9 +16,9 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
-    toggle(state) {
-      state.isOpen = !state.isOpen;
-    },
+    // toggle(state) {
+    //   state.isOpen = !state.isOpen;
+    // },
     addItem(state, action) { // action.payload
       const index = state.items.findIndex(item => item.id === action.payload.id);
       if (index !== -1) {

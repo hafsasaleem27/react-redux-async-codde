@@ -6,7 +6,7 @@ import Products from "./components/Shop/Products";
 import { useSelector } from "react-redux";
 
 function App() {
-  const isCartOpen = useSelector((state) => state.cart.isOpen);
+  const isCartOpen = useSelector((state) => state.ui.isCartOpen);
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
