@@ -9,6 +9,7 @@ const initialCartState = {
     price: 6,
     total: 18
   }],
+  totalAmount: 0,
 };
 
 const cartSlice = createSlice({
@@ -28,10 +29,12 @@ const cartSlice = createSlice({
           ...action.payload,
         })
       }
+      state.items[index].total += state.items[index].price;
     },
     removeItem(state, action) {
       const index = state.items.findIndex(item => item.id === action.payload.id);
       state.items[index].quantity--;
+      state.items[index].total -= state.items[index].price;
     },
   },
 });
