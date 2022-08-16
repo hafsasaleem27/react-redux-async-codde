@@ -2,11 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialUiState = {
   isCartOpen: false,
-  notification: {
-    status: '',
-    title: '',
-    message: '',
-  },
+  notification: null,
 };
 
 const uiSlice = createSlice({
