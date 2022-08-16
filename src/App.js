@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "./store/ui";
 import Notification from "./components/UI/Notification";
 
+let isInitial = true;
+
 function App() {
   const isCartOpen = useSelector((state) => state.ui.isCartOpen);
   const cart = useSelector((state) => state.cart);
@@ -42,6 +44,12 @@ function App() {
         })
       );
     };
+
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
     sendCartData().catch((error) =>
       dispatch({
         status: "error",
