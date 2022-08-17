@@ -10,6 +10,7 @@ const initialCartState = {
     total: 18
   }],
   totalAmount: 18,
+  changed: false,
 };
 
 const cartSlice = createSlice({
@@ -30,12 +31,14 @@ const cartSlice = createSlice({
           ...action.payload,
         })
       }
+      state.changed = true;
       state.items[index].total += state.items[index].price;
     },
     removeItem(state, action) {
       const index = state.items.findIndex(item => item.id === action.payload.id);
       state.items[index].quantity--;
       state.items[index].total -= state.items[index].price;
+      state.changed = true;
     },
   },
 });
